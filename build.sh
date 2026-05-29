@@ -13,7 +13,7 @@ TOOLS_DEST="$ROOT_DIR/airootfs/usr/local/bin"
 rm -rf "$TEMP_DIR"
 mkdir -p "$TEMP_DIR"
 cd "$TEMP_DIR"
-git clone https://github.com/EveGlowLuna/ElvaraInstaller.git || { echo "clone ElvaraInstaller 失败"; exit 1; }
+git clone https://github.com/ElvaraOS-Team/ElvaraInstaller.git || { echo "clone ElvaraInstaller 失败"; exit 1; }
 cd ElvaraInstaller
 git checkout dev_custom
 git clone https://github.com/EveGlowLuna/shorin-arch-setup-elvarainstaller custom/shorin-arch-setup
@@ -33,7 +33,7 @@ chmod +x "$INSTALLER_DEST/ElvaraInstaller"
 cd "$TEMP_DIR"
 rm -rf ElvaraInstaller
 
-git clone --depth 1 https://github.com/EveGlowLuna/ElvaraOS-Toolbox.git || { echo "clone ElvaraOS-Toolbox 失败"; exit 1; }
+git clone --depth 1 https://github.com/ElvaraOS-Team/ElvaraOS-Toolbox.git || { echo "clone ElvaraOS-Toolbox 失败"; exit 1; }
 cd ElvaraOS-Toolbox
 dotnet publish ElvaraOSTools/ElvaraOSTools.csproj -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishReadyToRun=true -p:PublishTrimmed=true -o publish || { echo "dotnet publish 失败"; exit 1; }
 mkdir -p "$TOOLS_DEST"

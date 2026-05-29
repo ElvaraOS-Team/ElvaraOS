@@ -29,7 +29,7 @@ done
 
 # 构建 ElvaraInstaller
 cd "$TEMP_DIR"
-git clone https://github.com/EveGlowLuna/ElvaraInstaller.git || { echo "clone ElvaraInstaller 失败"; exit 1; }
+git clone https://github.com/ElvaraOS-Team/ElvaraInstaller.git || { echo "clone ElvaraInstaller 失败"; exit 1; }
 cd ElvaraInstaller
 git checkout dev_custom
 git clone https://github.com/EveGlowLuna/shorin-arch-setup-elvarainstaller custom/shorin-arch-setup
@@ -51,7 +51,7 @@ chmod +x "$INSTALLER_DEST/ElvaraInstaller"
 cd "$TEMP_DIR"
 rm -rf ElvaraInstaller
 
-git clone https://github.com/EveGlowLuna/ElvaraOS-Toolbox.git || { echo "clone ElvaraOS-Toolbox 失败"; exit 1; }
+git clone https://github.com/ElvaraOS-Team/ElvaraOS-Toolbox.git || { echo "clone ElvaraOS-Toolbox 失败"; exit 1; }
 cd ElvaraOS-Toolbox
 dotnet publish ElvaraOSTools/ElvaraOSTools.csproj \
   -c Release -r linux-x64 --self-contained true \
