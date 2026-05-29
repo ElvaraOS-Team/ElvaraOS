@@ -9,6 +9,18 @@ TEMP_DIR="$ROOT_DIR/temp_build"
 INSTALLER_DEST="$ROOT_DIR/airootfs/usr/local/share/ElvaraInstaller"
 TOOLS_DEST="$ROOT_DIR/airootfs/usr/local/bin"
 
+# 版本核对：检查 profiledef.sh 的 iso_version 是否与 publish_info.md 第一行一致
+PROFILE_VERSION=$(grep -oP '^iso_version="\K[^"]+' "$ROOT_DIR/profiledef.sh") || { echo "错误：无法从 profiledef.sh 读取 iso_version"; exit 1; }
+PUBLISH_VERSION=$(head -1 "$ROOT_DIR/publish_info.md" | grep -oP 'v\K[0-9.]+') || { echo "错误：无法从 publish_info.md 第一行读取版本号"; exit 1; }
+
+if [ "$PROFILE_VERSION" != "$PUBLISH_VERSION" ]; then
+    echo "错误：版本不匹配！"
+    echo "  profiledef.sh iso_version: $PROFILE_VERSION"
+    echo "  publish_info.md 版本:     $PUBLISH_VERSION"
+    exit 1
+fi
+echo "版本核对通过: v$PROFILE_VERSION"
+
 # 清理之前的目录
 rm -rf "$WORK_DIR" "$OUTPUT_DIR" "$TEMP_DIR"
 mkdir -p "$WORK_DIR" "$OUTPUT_DIR" "$TEMP_DIR"
