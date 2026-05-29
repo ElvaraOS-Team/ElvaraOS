@@ -19,7 +19,7 @@ else
     cd ElvaraInstaller
     git checkout dev_custom
     mkdir -p custom
-    git clone https://github.com/EveGlowLuna/shorin-arch-setup-elvarainstaller custom/shorin-arch-setup
+    git clone -b dev_pre https://github.com/EveGlowLuna/shorin-arch-setup-elvarainstaller custom/shorin-arch-setup
     python3 -m venv venv
     source venv/bin/activate
     python3 -m pip install --upgrade pip
