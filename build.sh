@@ -50,10 +50,14 @@ sudo rm -rf "$WORK_DIR" "$OUT_DIR"
 
 # 运行 mkarchiso（需要 root 权限）
 echo "开始构建 ISO，需要 root 权限..."
+# 关闭 set -e 以正确捕获 mkarchiso 的退出码
+set +e
 sudo mkarchiso -v -w "$WORK_DIR" -o "$OUT_DIR" .
+BUILD_EXIT_CODE=$?
+set -e
 
 # 检查构建结果
-if [ $? -eq 0 ]; then
+if [ $BUILD_EXIT_CODE -eq 0 ]; then
     echo "构建成功！ISO 文件位于 $OUT_DIR 目录下。"
     echo "正在将输出文件权限改为当前用户..."
     sudo chown -R "$USER":"$USER" "$OUT_DIR"
