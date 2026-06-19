@@ -83,5 +83,5 @@ chmod +x /home/liveuser/Desktop/elvara-installer.desktop
 
 chmod 755 /home/liveuser
 
-chown -R liveuser:users /home/liveuser
+chown -R liveuser:liveuser /home/liveuser
 exit 0
