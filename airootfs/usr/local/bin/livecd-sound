@@ -8,7 +8,7 @@ usage() {
     Usage: livecdsound [OPTION]
     OPTIONS
         -u, --unmute      unmute all sound cards
-        -p, --pick        select a card for  speetch output
+        -p, --pick        select a card for speech output
         -h, --help        Show this usage message
 
 _EOF_
