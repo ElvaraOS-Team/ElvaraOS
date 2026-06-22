@@ -9,11 +9,16 @@ sed -i 's/^CheckSpace/#CheckSpace/' /etc/pacman.conf
 pacman-key --init
 pacman-key --populate archlinux
 
+
 # 启用服务
 systemctl enable earlyoom
+
 systemctl enable sddm
+systemctl set-default graphical.target
+
 systemctl enable NetworkManager
 systemctl enable bluetooth
+
 
 # 创建 go 缓存目录
 mkdir -p /build/go-cache
