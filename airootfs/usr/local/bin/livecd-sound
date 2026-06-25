@@ -191,7 +191,7 @@ pick_a_card() {
         exit 0
     fi
     systemd-cat -t "livecdsound" printf "multiple sound cards detected\n"
-    for card in "${usable_cards[@]}"; do
+    for card in $usable_cards; do
         if ! is_numeric "$card"; then
             continue
         fi
@@ -199,7 +199,7 @@ pick_a_card() {
     done
     wait
     sleep 1
-    for card in "${usable_cards[@]}"; do
+    for card in $usable_cards; do
         if ! is_numeric "$card"; then
             continue
         fi

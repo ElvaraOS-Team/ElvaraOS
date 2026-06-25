@@ -9,11 +9,21 @@ sed -i 's/^CheckSpace/#CheckSpace/' /etc/pacman.conf
 pacman-key --init
 pacman-key --populate archlinux
 
+
 # 启用服务
 systemctl enable earlyoom
+
 systemctl enable sddm
+systemctl set-default graphical.target
+
 systemctl enable NetworkManager
 systemctl enable bluetooth
+
+systemctl disable systemd-networkd.service systemd-networkd.socket 2>/dev/null || true
+systemctl disable systemd-networkd-wait-online.service 2>/dev/null || true
+systemctl disable iwd.service 2>/dev/null || true
+
+systemctl enable systemd-resolved.service 2>/dev/null || true # # 让 NetworkManager 通过 systemd-resolved 处理 DNS
 
 # 创建 go 缓存目录
 mkdir -p /build/go-cache
