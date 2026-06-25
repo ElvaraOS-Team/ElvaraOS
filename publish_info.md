@@ -1,4 +1,4 @@
-# v2.3
+# v2.3.1
 
 ## 主要更新内容
 
@@ -19,6 +19,11 @@
 ### v2.3
 
 - 尝试修复ElvaraInstaller使用shorin-arch-setup时仍出现无终端的错误。
+
+#### v2.4
+
+- 同步最新版本软件仓库
+- 修复脚本问题（#2 #3 #4 #5）感谢[@althaneda](https://github.com/althaneda)
 
 > [!WARNING]
 > 最新版与旧版安装器均会安装最新版本的软件。现有镜像仓库只维护最新两个的版本。
