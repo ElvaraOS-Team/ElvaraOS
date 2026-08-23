@@ -20,7 +20,7 @@
 
 - 尝试修复ElvaraInstaller使用shorin-arch-setup时仍出现无终端的错误。
 
-#### v2.3.1/v2.3.2
+#### v2.3.x
 
 - 同步最新版本软件仓库
 - 修复脚本问题（#2 #3 #4 #5）感谢[@althaneda](https://github.com/althaneda)
