@@ -2,7 +2,7 @@
 # shellcheck disable=SC2034
 
 iso_name="ElvaraOS"
-iso_version="2.3.2"
+iso_version="2.3.3"
 iso_label="ELVARA_${iso_version}_$(date +%Y%m%d)"
 iso_publisher="EveGlow <https://github.com/EveGlowLuna>"
 iso_application="ElvaraOS Live/Rescue DVD"
